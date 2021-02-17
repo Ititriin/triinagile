@@ -6,7 +6,7 @@
         <b-button
           v-b-modal.modal-1
           variant="success"
-          @click="showProducts(items, data.item)"
+          @click="showProducts(data.item)"
           >Vaata toote detaile</b-button
         >
       </template>
@@ -59,8 +59,8 @@ export default {
 
   },
   methods: {
-    showProducts(products, item) {
-      console.log(products);
+    showProducts(item) {
+      //console.log(products);
       this.productTableTitle = "Toode #" + item.id;
       this.productItems = [item];
     },
