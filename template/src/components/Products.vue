@@ -6,7 +6,7 @@
         <b-button
           v-b-modal.modal-1
           variant="success"
-          @click="showProducts(data.item.products, data.item)"
+          @click="showProducts(items, data.item)"
           >Vaata toote detaile</b-button
         >
       </template>
@@ -14,7 +14,7 @@
 
     <b-modal id="modal-1" size="xl" :title="productTableTitle">
       <p class="my-4">
-        <b-table striped hover :items="items" :fields="productFields">
+        <b-table striped hover :items="productItems" :fields="productFields">
           <template #cell(data)="data">
             <b>{{ data.value }}</b>
           </template>
@@ -56,12 +56,13 @@ export default {
     });
     //console.log(products);
     this.items = products.data.allProducts;
+
   },
   methods: {
     showProducts(products, item) {
-      console.log(item);
+      console.log(products);
       this.productTableTitle = "Toode #" + item.id;
-      this.productItems = products;
+      this.productItems = [item];
     },
   },
 };
